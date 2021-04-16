@@ -1,4 +1,4 @@
-project       = "tth-test-0"
+project       = "tth-demo-iis"
 app_name      = "tth-app" #do NOT enter any spaces
 app_environment = "dev"
 app_node_count  = 2

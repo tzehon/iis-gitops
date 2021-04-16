@@ -3,10 +3,10 @@
 # Create web server template
 resource "google_compute_instance_template" "web_server" {
   name                 = "${var.app_name}-${var.app_environment}-web-server-template"
-  description          = "This template is used to create web server instances running Apache"
-  instance_description = "Web Server running Apache"
+  description          = "This template is used to create web server instances running IIS"
+  instance_description = "Web Server running IIS"
   can_ip_forward       = false
-  machine_type         = "g1-small"
+  machine_type         = "e2-medium"
   tags                 = ["ssh","http"]
 
   scheduling {
@@ -15,7 +15,7 @@ resource "google_compute_instance_template" "web_server" {
   }
 
   disk {
-    source_image = "ubuntu-os-cloud/ubuntu-1804-lts"
+    source_image = "golden-windows-2021-04-16-454-54"
     auto_delete  = true
     boot         = true
   }
@@ -28,6 +28,4 @@ resource "google_compute_instance_template" "web_server" {
   lifecycle {
     create_before_destroy = true
   }
-
-  metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential apache2"
 }
