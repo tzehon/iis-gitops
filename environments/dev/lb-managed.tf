@@ -30,7 +30,8 @@ resource "google_compute_backend_service" "backend_service" {
 
 # creates a group of virtual machine instances
 resource "google_compute_instance_group_manager" "web_private_group" {
-  name                 = "${var.app_name}-${var.app_environment}-vm-group"
+  # name                 = "${var.app_name}-${var.app_environment}-vm-group"
+  name                 = substr("${var.app_name}-${var.app_environment}-vm-group-${md5(google_compute_instance_template.template.name)}", 0, 63)
   base_instance_name   = "${var.app_name}-${var.app_environment}-web"
   zone                 = var.gcp_zone_1
   version {
@@ -39,6 +40,10 @@ resource "google_compute_instance_group_manager" "web_private_group" {
   named_port {
     name = "http"
     port = 80
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
