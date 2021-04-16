@@ -25,7 +25,7 @@ resource "google_compute_instance_template" "web_server" {
     subnetwork = google_compute_subnetwork.private_subnet_1.name
   }
 
-  # lifecycle {
-  #   create_before_destroy = true
-  # }
+  lifecycle {
+    create_before_destroy = true
+  }
 }
