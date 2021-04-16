@@ -12,23 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-output "network" {
-  value = "${module.vpc.network}"
+terraform {
+  required_version = ">= 0.13"
 }
 
-output "subnet" {
-  value = "${module.vpc.subnet}"
+provider "google" {
+  project = "${var.project}"
+  region  = "${var.gcp_region_1}"
+  zone    = "${var.gcp_zone_1}"
 }
 
-output "firewall_rule" {
-  value = "${module.firewall.firewall_rule}"
-}
-
-output "instance_name" {
-  value = "${module.http_server.instance_name}"
-}
-
-output "external_ip" {
-  value = "${module.http_server.external_ip}"
+provider "google-beta" {
+  project     = "${var.project}"
+  region  = "${var.gcp_region_1}"
+  zone    = "${var.gcp_zone_1}"
 }

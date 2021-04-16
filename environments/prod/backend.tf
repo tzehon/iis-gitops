@@ -15,7 +15,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "tth-devops-gitops-iis-tfstate"
+    bucket = "PROJECT_ID-tfstate"
     prefix = "env/prod"
   }
 }

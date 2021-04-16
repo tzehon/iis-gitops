@@ -14,3 +14,35 @@
 
 
 variable "project" {}
+
+variable "app_name" {
+  type = string
+  description = "Application name"
+}
+
+# define application environment
+variable "app_environment" {
+  type = string
+  description = "Application environment"
+}
+
+variable "app_node_count" {
+  type = string
+  description = "Number of servers to build"
+}
+
+# define GCP region
+variable "gcp_region_1" {
+  type = string
+  description = "GCP region"
+}
+# define GCP zone
+variable "gcp_zone_1" {
+  type = string
+  description = "GCP zone"
+}
+# define private subnet
+variable "private_subnet_cidr_1" {
+  type = string
+  description = "private subnet CIDR 1"
+}
