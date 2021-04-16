@@ -33,9 +33,7 @@ resource "google_compute_instance_group_manager" "web_private_group" {
   name                 = "${var.app_name}-${var.app_environment}-vm-group"
   base_instance_name   = "${var.app_name}-${var.app_environment}-web"
   zone                 = var.gcp_zone_1
-  version {
-    instance_template  = "${google_compute_instance_template.web_server.self_link}"
-  }
+  instance_template  = "${google_compute_instance_template.web_server.self_link}"
   named_port {
     name = "http"
     port = 80

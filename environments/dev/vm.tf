@@ -2,7 +2,7 @@
 
 # Create web server template
 resource "google_compute_instance_template" "web_server" {
-  name_prefix                 = "${var.app_name}-${var.app_environment}-web-server-template"
+  name_prefix          = "${var.app_name}-${var.app_environment}-web-server-template"
   description          = "This template is used to create web server instances running IIS"
   instance_description = "Web Server running IIS"
   can_ip_forward       = false
@@ -15,7 +15,7 @@ resource "google_compute_instance_template" "web_server" {
   }
 
   disk {
-    source_image = "golden-windows-2021-04-16-435-35"
+    source_image = "golden-windows-2021-04-16-411-11"
     auto_delete  = true
     boot         = true
   }
