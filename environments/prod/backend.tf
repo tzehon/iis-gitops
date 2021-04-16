@@ -15,7 +15,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "tth-test-0-tfstate"
+    bucket = "tth-demo-iis-tfstate"
     prefix = "env/prod"
   }
 }
