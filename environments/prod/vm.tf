@@ -2,7 +2,7 @@
 
 # Create web server template
 resource "google_compute_instance_template" "web_server" {
-  name                 = "${var.app_name}-${var.app_environment}-web-server-template"
+  name_prefix          = "${var.app_name}-${var.app_environment}-web-server-template"
   description          = "This template is used to create web server instances running IIS"
   instance_description = "Web Server running IIS"
   can_ip_forward       = false
