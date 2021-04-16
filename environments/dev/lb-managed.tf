@@ -40,10 +40,6 @@ resource "google_compute_instance_group_manager" "web_private_group" {
     name = "http"
     port = 80
   }
-
-  lifecycle {
-    create_before_destroy = true
-  }
 }
 
 # determine whether instances are responsive and able to do work
