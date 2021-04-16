@@ -15,7 +15,7 @@ resource "google_compute_instance_template" "web_server" {
   }
 
   disk {
-    source_image = "golden-windows-2021-04-16-411-11"
+    source_image = "golden-windows-2021-04-16-436-36"
     auto_delete  = true
     boot         = true
   }
