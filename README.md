@@ -33,4 +33,4 @@ This configuration is important to protect both the dev and prod branches. Meani
 
 ## Promoting your environment to **production**
 
-Once you have tested your app, you can promote your configuration to production by merging dev to prod.
+Once you have tested your app, you can promote your configuration to production by merging the dev branch to prod.
