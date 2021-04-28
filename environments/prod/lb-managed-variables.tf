@@ -4,14 +4,14 @@
 variable "lb_max_replicas" {
   type        = string
   description = "Maximum number of VMs for autoscale"
-  default     = "4"
+  default     = "6"
 }
 
 # minimum number of VMs for load balancer autoscale
 variable "lb_min_replicas" {
   type        = string
   description = "Minimum number of VMs for autoscale"
-  default     = "1"
+  default     = "2"
 }
 
 # number of seconds that the autoscaler should wait before it starts collecting information
