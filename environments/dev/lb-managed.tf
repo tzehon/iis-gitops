@@ -30,8 +30,8 @@ resource "google_compute_backend_service" "backend_service" {
 
 # creates a group of virtual machine instances
 resource "google_compute_instance_group_manager" "web_private_group" {
-  # name                 = "${var.app_name}-${var.app_environment}-vm-group"
-  name                 = substr("${var.app_name}-${var.app_environment}-vm-group-${md5(google_compute_instance_template.web_server.name)}", 0, 63)
+  name                 = "${var.app_name}-${var.app_environment}-vm-group"
+  # name                 = substr("${var.app_name}-${var.app_environment}-vm-group-${md5(google_compute_instance_template.web_server.name)}", 0, 63)
   base_instance_name   = "${var.app_name}-${var.app_environment}-web"
   zone                 = var.gcp_zone_1
   version {
@@ -44,6 +44,13 @@ resource "google_compute_instance_group_manager" "web_private_group" {
 
   lifecycle {
     create_before_destroy = true
+  }
+
+  update_policy {
+    max_surge_fixed         = 1
+    max_unavailable_fixed   = 1
+    minimal_action          = "REPLACE"
+    type                    = "PROACTIVE"
   }
 }
 
