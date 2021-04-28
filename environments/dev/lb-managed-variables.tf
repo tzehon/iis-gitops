@@ -18,5 +18,5 @@ variable "lb_min_replicas" {
 variable "lb_cooldown_period" {
   type        = string
   description = "The number of seconds that the autoscaler should wait before it starts collecting information from a new instance"
-  default     = "60"
+  default     = "120"
 }

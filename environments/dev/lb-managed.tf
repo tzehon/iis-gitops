@@ -45,13 +45,6 @@ resource "google_compute_instance_group_manager" "web_private_group" {
   lifecycle {
     create_before_destroy = true
   }
-
-  update_policy {
-    max_surge_fixed         = 1
-    max_unavailable_fixed   = 1
-    minimal_action          = "REPLACE"
-    type                    = "PROACTIVE"
-  }
 }
 
 # determine whether instances are responsive and able to do work
